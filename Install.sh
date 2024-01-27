@@ -8,7 +8,7 @@ function exit_if_unsuccessfull() {
 echo -e "Setting up enviourment\n"
 
 echo -e '\n' >> ~/.bashrc &&
-cp -r ./shell-scripts ~/shell-scripts &&
+cp -r ./shell-scripts ~/ &&
 DIR=$(pwd)
 
 exit_if_unsuccessfull $?
