@@ -13,6 +13,7 @@ DIR=$(pwd)
 
 exit_if_unsuccessfull $?
 
+echo -e '# custom setup d41d8cd98f00b204e9800998ecf8427e\n' >> ~/.bashrc
 
     # setting scripts
 while getopts "zgeh" opt; do
@@ -43,11 +44,13 @@ while getopts "zgeh" opt; do
             exit_if_unsuccessfull $?
             ;;
         h)            
-            echo -e "Setting up Home2 and vact\n"
-            echo -e 'export HOME2="/mnt/c/Users/rhyth"\nalias cdd="cd $HOME2"\nfunction vact() {\nsource $1"/bin/activate"\n}\n' >> ~/.bashrc
+            echo -e "Setting up Home2, aliases and vact\n"
+            cat "./shell-scripts/alias.sh" >> ~/.bashrc
             exit_if_unsuccessfull $?
 
     esac
 done            
 
+echo -e '# custom setup d41d8cd98f00b204e9800998ecf8427e\n' >> ~/.bashrc
 
+source ~/.bashrc
