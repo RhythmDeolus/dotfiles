@@ -8,7 +8,9 @@ function exit_if_unsuccessfull() {
 echo -e "Setting up enviourment\n"
 
 echo -e '\n' >> ~/.bashrc &&
-cp -r ./shell-scripts ~/ &&
+cd shell-scripts &&
+cp -rfa . ~/ &&
+cd .. &&
 DIR=$(pwd)
 
 exit_if_unsuccessfull $?
@@ -45,7 +47,7 @@ while getopts "zgeh" opt; do
             ;;
         h)            
             echo -e "Setting up Home2, aliases and vact\n"
-            cat "./shell-scripts/alias.sh" >> ~/.bashrc
+            echo "source ~/shell-scripts/alias.sh" >> ~/.bashrc
             exit_if_unsuccessfull $?
 
     esac
