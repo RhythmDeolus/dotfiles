@@ -1,5 +1,6 @@
 export HOME2="/mnt/c/Users/rhyth"
 alias cdd="cd \$(z | fzf --tiebreak=index --tac | awk '{print \$2}' | grep '^' || find ~ -type d | fzf | grep '^' || pwd)"
+alias tmux="tmux -u"
 function his() {
     l=$(history | fzf --tiebreak=index --tac | awk '{$1=""; print $0}')
     eval "$l"
